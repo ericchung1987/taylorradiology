@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Radiology Semester Countdown</title>
+<style>
+:root{--card:#fff;--text:#1f2937;--muted:#6b7280;--accent:#b91c1c;--border:#e5e7eb;--soft:#f8fafc}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:transparent}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+.wrap{width:100%;padding:8px}
+.card{width:100%;max-width:820px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 22px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.05)}
+.eyebrow{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+h1{margin:0;font-size:clamp(26px,4.5vw,40px);line-height:1.1}
+.date{margin-top:8px;color:var(--muted);font-size:16px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
+.unit{border:1px solid var(--border);border-radius:12px;padding:16px 8px;background:#fbfcfe}
+.num{display:block;font-size:clamp(28px,6vw,48px);font-weight:700;color:var(--accent);line-height:1}
+.label{display:block;margin-top:8px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.status{margin-top:20px;font-size:18px;font-weight:600}
+.schedule{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);text-align:left}
+.batch-title{font-weight:700;font-size:18px;text-align:center;margin-bottom:14px}
+.rotation{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px;background:var(--soft);border:1px solid var(--border);border-radius:10px;margin-top:10px}
+.rotation-name{font-weight:700}
+.rotation-date{color:var(--muted);white-space:nowrap}
+.footer{margin-top:10px;color:var(--muted);font-size:13px}
+@media(max-width:620px){
+  .countdown{grid-template-columns:repeat(2,1fr)}
+  .rotation{grid-template-columns:1fr}
+  .rotation-date{white-space:normal}
+  .card{padding:22px 14px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<main class="card">
+  <div class="eyebrow">Countdown to</div>
+  <h1>New Radiology Semester</h1>
+  <div class="date">18 January 2027</div>
+
+  <div class="countdown" aria-live="polite">
+    <div class="unit"><span class="num" id="days">--</span><span class="label">Days</span></div>
+    <div class="unit"><span class="num" id="hours">--</span><span class="label">Hours</span></div>
+    <div class="unit"><span class="num" id="minutes">--</span><span class="label">Minutes</span></div>
+    <div class="unit"><span class="num" id="seconds">--</span><span class="label">Seconds</span></div>
+  </div>
+
+  <div class="status" id="status">Module updating</div>
+
+  <section class="schedule">
+    <div class="batch-title">BATCH 23 YEAR 5 SEMESTER 9 (CLINICAL ROTATION 5)</div>
+    <div class="rotation">
+      <div class="rotation-name">Radiology 23B</div>
+      <div class="rotation-date">18/1/2027 - 29/1/2027</div>
+    </div>
+    <div class="rotation">
+      <div class="rotation-name">Radiology 23C</div>
+      <div class="rotation-date">15/2/2027 - 5/3/2027</div>
+    </div>
+  </section>
+
+  <div class="footer">Malaysia time (UTC+8)</div>
+</main>
+</div>
+
+<script>
+const target=new Date("2027-01-18T00:00:00+08:00").getTime();
+const els={
+  days:document.getElementById("days"),
+  hours:document.getElementById("hours"),
+  minutes:document.getElementById("minutes"),
+  seconds:document.getElementById("seconds"),
+  status:document.getElementById("status")
+};
+function updateCountdown(){
+  const diff=target-Date.now();
+  if(diff<=0){
+    els.days.textContent="0";
+    els.hours.textContent="00";
+    els.minutes.textContent="00";
+    els.seconds.textContent="00";
+    els.status.textContent="New Radiology Semester has begun";
+    return;
+  }
+  els.days.textContent=Math.floor(diff/86400000);
+  els.hours.textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,"0");
+  els.minutes.textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,"0");
+  els.seconds.textContent=String(Math.floor((diff%60000)/1000)).padStart(2,"0");
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
