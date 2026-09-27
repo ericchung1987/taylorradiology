@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teaching Team & Key Contacts</title>
+<style>
+:root{
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#64748b;
+  --accent:#2563eb;
+  --accent-bg:#eef4ff;
+  --border:#e2e8f0;
+  --panel:#f8fafc;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:transparent}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+.wrap{width:100%;padding:12px}
+.section{
+  width:100%;max-width:1040px;margin:0 auto;
+  background:linear-gradient(180deg,#ffffff,#fbfdff);
+  border:1px solid var(--border);border-radius:22px;
+  padding:28px 22px;box-shadow:0 14px 38px rgba(15,23,42,.08)
+}
+.heading{text-align:center;margin-bottom:20px}
+.eyebrow{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+h1{margin:0;font-size:clamp(28px,4vw,40px);font-weight:800;line-height:1.15}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:16px;align-items:stretch}
+.directory{
+  height:400px;overflow-y:auto;border:1px solid var(--border);
+  border-radius:16px;background:var(--card);padding:8px;scrollbar-width:thin
+}
+.tab{
+  position:relative;width:100%;min-height:54px;text-align:left;
+  border:1px solid transparent;background:transparent;color:var(--text);
+  border-radius:12px;padding:10px 12px 10px 14px;font-size:13px;
+  font-weight:700;cursor:pointer;
+  transition:transform .16s ease,background .16s ease,border-color .16s ease,box-shadow .16s ease
+}
+.tab + .tab{margin-top:5px}
+.tab small{display:block;margin-top:3px;color:var(--muted);font-size:11px;font-weight:500;line-height:1.25}
+.tab::before{
+  content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;
+  border-radius:999px;background:transparent
+}
+.tab[aria-selected="true"]{background:var(--accent-bg);border-color:#d6e1f5;box-shadow:0 6px 16px rgba(15,23,42,.06)}
+.tab[aria-selected="true"]::before{background:var(--accent)}
+@media(hover:hover) and (pointer:fine){
+  .tab:hover{transform:translateX(3px);background:rgba(148,163,184,.08)}
+}
+.panel{
+  height:400px;border:1px solid var(--border);border-radius:16px;
+  background:var(--card);padding:24px;display:flex;flex-direction:column;
+  overflow:hidden;position:relative
+}
+.panel::after{
+  content:"";position:absolute;right:-55px;top:-55px;width:190px;height:190px;
+  border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.09),transparent 68%);
+  pointer-events:none
+}
+.name{font-size:clamp(24px,3.2vw,36px);font-weight:800;line-height:1.15;margin-bottom:8px;position:relative;z-index:1}
+.role-pill{
+  display:inline-block;border-radius:999px;padding:7px 11px;background:var(--accent-bg);
+  border:1px solid #d6e1f5;font-size:12px;font-weight:700;margin-bottom:20px;
+  position:relative;z-index:1
+}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px;position:relative;z-index:1}
+.item{min-width:0}
+.label{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.value{font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+.topics{margin-top:auto;padding-top:18px;border-top:1px solid var(--border);position:relative;z-index:1}
+.topics-title{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.topic-list{display:flex;flex-wrap:wrap;gap:8px;max-height:94px;overflow-y:auto;padding-right:3px;scrollbar-width:thin}
+.topic{
+  border:1px solid var(--border);border-radius:999px;padding:7px 11px;
+  font-size:12px;line-height:1.25;background:var(--panel);
+  transition:transform .14s ease,border-color .14s ease,background .14s ease
+}
+@media(hover:hover) and (pointer:fine){
+  .topic:hover{transform:translateY(-2px);border-color:var(--accent);background:#f3f7ff}
+}
+
+/* Improved mobile view: swipeable tab bar */
+@media(max-width:720px){
+  .section{padding:22px 14px}
+  .layout{grid-template-columns:1fr}
+  .directory{
+    height:auto;
+    overflow-x:auto;
+    overflow-y:hidden;
+    display:flex;
+    gap:8px;
+    padding:8px;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  .tab{
+    flex:0 0 220px;
+    width:220px;
+    min-height:68px;
+    white-space:normal;
+    scroll-snap-align:start;
+  }
+  .tab + .tab{margin-top:0}
+  .panel{height:auto;min-height:390px;padding:20px 16px}
+  .grid{grid-template-columns:1fr}
+  .topic-list{max-height:none}
+}
+
+@media(max-width:420px){
+  .tab{
+    flex:0 0 190px;
+    width:190px;
+    font-size:12px;
+  }
+  .name{font-size:clamp(22px,7vw,30px)}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="section">
+  <div class="heading">
+    <div class="eyebrow">Radiology Module</div>
+    <h1>Teaching Team &amp; Key Contacts</h1>
+  </div>
+
+  <div class="layout">
+    <nav class="directory" role="tablist" aria-label="Teaching team contacts">
+      <button class="tab" type="button" role="tab" aria-selected="true" data-person="0">Dr Lim Su Yin<small>Programme Coordinator</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="1">Assoc Prof Dr Eric Chung<small>Module Leader · Interventional Radiology</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="2">Dr Noor Aida bt Mat Daud<small>Radiology HOD</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="3">Dr Emy Saera bt Rosani<small>Radiology</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="4">Dr Mohd Nazlin bin Kamarudin<small>Radiology</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="5">Dr Zulkifli Zaki bin Abdul Ghani<small>Radiology</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="6">Dr Sarah Alicia<small>Radiology</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="7">Dr Sumithra S. Ranganathan<small>Radiology</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="8">Assoc Prof Dr Tee Yu Jin<small>Radiology</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="9">Prof Dr Yeong Chai Hong<small>Medical Physics</small></button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-person="10">Dr Francine Chai<small>Emergency Medicine</small></button>
+    </nav>
+
+    <section class="panel" aria-live="polite">
+      <div class="name" id="person-name"></div>
+      <div><span class="role-pill" id="person-role"></span></div>
+
+      <div class="grid">
+        <div class="item">
+          <div class="label">Designation</div>
+          <div class="value" id="person-designation"></div>
+        </div>
+        <div class="item">
+          <div class="label">Institution</div>
+          <div class="value" id="person-institution"></div>
+        </div>
+        <div class="item">
+          <div class="label">Email address</div>
+          <div class="value" id="person-email"></div>
+        </div>
+        <div class="item">
+          <div class="label">Contact number</div>
+          <div class="value" id="person-phone"></div>
+        </div>
+      </div>
+
+      <div class="topics">
+        <div class="topics-title">Teaching Topics</div>
+        <div class="topic-list" id="person-topics"></div>
+      </div>
+    </section>
+  </div>
+</section>
+</div>
+
+<script>
+(() => {
+  const people = [
+    {name:'Dr Lim Su Yin',designation:'Dr',role:'Programme Coordinator · Neurology',institution:'Taylor’s University School of Medicine',email:'Suyin.Lim@taylors.edu.my',phone:'013-8482471',topics:['Imaging of Brain in Chronic Diseases and Tumours']},
+    {name:'Assoc Prof Dr Eric Chung',designation:'Associate Professor',role:'Module Leader · Interventional Radiology',institution:'Taylor’s University School of Medicine',email:'Eric.chung@taylors.edu.my',phone:'016-8219785',topics:['Interventional Radiology']},
+    {name:'Dr Noor Aida bt Mat Daud',designation:'Dr',role:'Radiology HOD',institution:'HSB',email:'nooraida1999@hotmail.com',phone:'019-6603015',topics:['Imaging of Hepatobiliary System','Role of Imaging in Obstetrics','Role of Imaging in Gynecology']},
+    {name:'Dr Emy Saera bt Rosani',designation:'Dr',role:'Radiology',institution:'HSB',email:'dr.emysaera@moh.gov.my · emysaera@yahoo.com.my',phone:'012-3750751',topics:['Imaging of Spinal Disorders & Trauma','Imaging in Oncology','Imaging of Common Pediatric Diseases']},
+    {name:'Dr Mohd Nazlin bin Kamarudin',designation:'Dr',role:'Radiology',institution:'HSB',email:'zircon85_kn@yahoo.com',phone:'019-7574639',topics:['Imaging of Renal Diseases','Applied Radiological Anatomy on Cross-Sectional Imaging']},
+    {name:'Dr Zulkifli Zaki bin Abdul Ghani',designation:'Dr',role:'Radiology',institution:'HSB',email:'dr.zulkiflizaki@moh.gov.my',phone:'019-9313255',topics:['Radiology Imaging Procedures: Preparation & Precautions','Interventional Radiology Procedures']},
+    {name:'Dr Sarah Alicia',designation:'Dr',role:'Radiology',institution:'KKM',email:'alicia.sarah@gmail.com',phone:'016-6267514',topics:['Seminar: Lump in the Left Abdomen','Interventional Radiology','Ortho-Imaging in Adults & Pediatrics','Present and Future of PET Scanners']},
+    {name:'Dr Sumithra S. Ranganathan',designation:'Dr',role:'Radiology',institution:'Prince Court Medical Centre',email:'sumithra.ranganathan@princecourt.com',phone:'012-6768840',topics:['Imaging of Spleen and Lymph Nodes','Imaging of Pancreas']},
+    {name:'Assoc Prof Dr Tee Yu Jin',designation:'Associate Professor',role:'Radiology',institution:'Not specified',email:'virgoalan14@hotmail.com',phone:'016-3404634',topics:['Imaging of GIT','Imaging of CVS','Emergency Radiology','Seminar: Investigation for Chest Pain']},
+    {name:'Prof Dr Yeong Chai Hong',designation:'Professor',role:'Medical Physics',institution:'Taylor’s University School of Medicine',email:'ChaiHong.Yeong@taylors.edu.my',phone:'016-7016875',topics:['Principles of Ultrasound, Doppler & Nuclear Medicine','Radiation Risks, Prevention & Protection','MRI Safety','CR, DR & Film Radiography']},
+    {name:'Dr Francine Chai',designation:'Dr',role:'Emergency Medicine',institution:'Taylor’s University School of Medicine',email:'Francine.Chai@taylors.edu.my',phone:'017-8886691',topics:['FAST Ultrasound Scan of Abdomen · Hands-on Demonstration']}
+  ];
+
+  const fields = {
+    name: document.getElementById('person-name'),
+    role: document.getElementById('person-role'),
+    designation: document.getElementById('person-designation'),
+    institution: document.getElementById('person-institution'),
+    email: document.getElementById('person-email'),
+    phone: document.getElementById('person-phone'),
+    topics: document.getElementById('person-topics')
+  };
+  const tabs = [...document.querySelectorAll('.tab')];
+
+  function showPerson(index) {
+    const p = people[index];
+    fields.name.textContent = p.name;
+    fields.role.textContent = p.role;
+    fields.designation.textContent = p.designation;
+    fields.institution.textContent = p.institution;
+    fields.email.textContent = p.email;
+    fields.phone.textContent = p.phone;
+    fields.topics.innerHTML = '';
+    p.topics.forEach(topic => {
+      const chip = document.createElement('span');
+      chip.className = 'topic';
+      chip.textContent = topic;
+      fields.topics.appendChild(chip);
+    });
+    tabs.forEach((tab, i) => tab.setAttribute('aria-selected', i === index ? 'true' : 'false'));
+    tabs[index].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  }
+
+  tabs.forEach(tab => tab.addEventListener('click', () => showPerson(Number(tab.dataset.person))));
+  showPerson(0);
+})();
+</script>
+</body>
+</html>
